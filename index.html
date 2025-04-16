@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aara Angelique Tangcay - Portfolio</title>
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     body {
@@ -29,32 +33,39 @@
     .dark-mode .border-gray-200 {
       border-color: #6B7280;
     }
+    .dark-mode .active {
+      border-color: #D1D5DB;
+    }
     .timeline-connector::before {
       content: '';
       position: absolute;
-      left: 1rem;
-      top: 2rem;
-      bottom: -1rem;
+      left: 0.75rem;
+      top: 1.5rem;
+      bottom: -0.75rem;
       width: 2px;
       background-color: #D1D5DB;
     }
     .dark-mode .timeline-connector::before {
       background-color: #6B7280;
     }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body class="bg-white text-black">
   <!-- Hero Section -->
-  <section id="home" class="min-h-[80vh] flex items-center bg-gray-100">
+  <section id="home" class="min-h-[60vh] sm:min-h-[80vh] flex items-center bg-gray-100 py-12 sm:py-20">
     <div class="max-w-4xl mx-auto px-4 text-center animate__animated animate__fadeIn">
-      <img src="./assets/profilepic.jpg" alt="Profile Picture" class="w-48 h-48 object-cover rounded-full mx-auto mb-6 border-2 border-gray-200 shadow-md transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn">
-      <h1 class="text-4xl font-bold font-poppins text-black animate__animated animate__fadeInUp">Aara Angelique Tangcay</h1>
-      <p class="text-lg text-gray-600 mt-2 animate__animated animate__fadeInUp animate__delay-1s">Bachelor of Science in Information Technology (2027)</p>
+      <img src="./assets/profilepic.jpg" onerror="this.src='https://via.placeholder.com/150'" alt="Profile Picture" class="w-32 sm:w-48 h-32 sm:h-48 object-cover rounded-full mx-auto mb-6 border-2 border-gray-200 shadow-md transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn">
+      <h1 class="text-2xl sm:text-4xl font-bold font-poppins text-black animate__animated animate__fadeInUp">Aara Angelique Tangcay</h1>
+      <p class="text-base sm:text-lg text-gray-600 mt-2 animate__animated animate__fadeInUp animate__delay-1s">Bachelor of Science in Information Technology (2027)</p>
       <div class="flex justify-center space-x-4 mt-6">
-        <a href="https://github.com" target="_blank" class="text-xl text-gray-600 hover:text-black transition-transform duration-300 hover:scale-110 animate__animated animate__zoomIn animate__delay-2s">
+        <a href="https://github.com" target="_blank" class="text-lg sm:text-xl text-gray-600 hover:text-black transition-transform duration-300 hover:scale-110 animate__animated animate__zoomIn animate__delay-2s">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://linkedin.com" target="_blank" class="text-xl text-gray-600 hover:text-black transition-transform duration-300 hover:scale-110 animate__animated animate__zoomIn animate__delay-2s">
+        <a href="https://linkedin.com" target="_blank" class="text-lg sm:text-xl text-gray-600 hover:text-black transition-transform duration-300 hover:scale-110 animate__animated animate__zoomIn animate__delay-2s">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
@@ -63,15 +74,20 @@
 
   <!-- Navbar -->
   <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 animate__animated animate__fadeInDown">
-    <div class="max-w-4xl mx-auto px-4 py-3 flex justify-center space-x-6">
-      <a href="#home" class="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Home</a>
-      <a href="#education" class="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Education</a>
-      <a href="#projects" class="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Projects</a>
-      <a href="#skills" class="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Skills</a>
-      <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Contact</a>
-      <button id="darkModeToggle" class="text-gray-600 hover:text-black transition-colors duration-300">
-        <i class="fas fa-moon"></i>
+    <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+      <button id="menuToggle" class="sm:hidden text-gray-600 hover:text-black">
+        <i class="fas fa-bars"></i>
       </button>
+      <div id="navMenu" class="hidden sm:flex sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-6">
+        <a href="#home" class="nav-link text-xs sm:text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Home</a>
+        <a href="#education" class="nav-link text-xs sm:text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Education</a>
+        <a href="#projects" class="nav-link text-xs sm:text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Projects</a>
+        <a href="#skills" class="nav-link text-xs sm:text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Skills</a>
+        <a href="#contact" class="nav-link text-xs sm:text-sm font-medium text-gray-600 hover:text-black transition-colors duration-300">Contact</a>
+        <button id="darkModeToggle" class="text-gray-600 hover:text-black transition-colors duration-300">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
@@ -79,25 +95,25 @@
   <hr class="border-gray-200">
 
   <!-- Education Section -->
-  <section id="education" class="py-20">
+  <section id="education" class="py-12 sm:py-20">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold font-poppins text-center text-black mb-12 animate__animated animate__fadeInUp">Education</h2>
+      <h2 class="text-xl sm:text-3xl font-bold font-poppins text-center text-black mb-8 sm:mb-12 animate__animated animate__fadeInUp">Education</h2>
       <div class="space-y-6">
-        <div class="relative pl-10 timeline-connector animate__animated animate__fadeInUp">
-          <div class="absolute left-0 top-0 w-4 h-4 bg-gray-600 rounded-full"></div>
-          <div class="bg-white border border-gray-200 shadow-sm rounded-lg p-4">
-            <h3 class="text-lg font-semibold text-black">Early Education</h3>
-            <ul class="list-disc list-inside space-y-1 mt-2 text-gray-600">
+        <div class="relative pl-6 sm:pl-10 timeline-connector animate__animated animate__fadeInUp animate__faster">
+          <div class="absolute left-0 top-0 w-3 sm:w-4 h-3 sm:h-4 bg-gray-600 rounded-full"></div>
+          <div class="bg-white border border-gray-200 shadow-sm rounded-lg p-3 sm:p-4">
+            <h3 class="text-base sm:text-lg font-semibold text-black">Early Education</h3>
+            <ul class="list-disc list-inside space-y-1 mt-2 text-gray-600 text-sm sm:text-base">
               <li><strong>Pre-School</strong>: Aara Angelique Tangcay Pre-School</li>
               <li><strong>Primary School</strong>: Matina Central Elementary School (2010–2016)</li>
             </ul>
           </div>
         </div>
-        <div class="relative pl-10 animate__animated animate__fadeInUp animate__delay-1s">
-          <div class="absolute left-0 top-0 w-4 h-4 bg-gray-600 rounded-full"></div>
-          <div class="bg-white border border-gray-200 shadow-sm rounded-lg p-4">
-            <h3 class="text-lg font-semibold text-black">High School & College</h3>
-            <ul class="list-disc list-inside space-y-1 mt-2 text-gray-600">
+        <div class="relative pl-6 sm:pl-10 animate__animated animate__fadeInUp animate__faster animate__delay-1s">
+          <div class="absolute left-0 top-0 w-3 sm:w-4 h-3 sm:h-4 bg-gray-600 rounded-full"></div>
+          <div class="bg-white border border-gray-200 shadow-sm rounded-lg p-3 sm:p-4">
+            <h3 class="text-base sm:text-lg font-semibold text-black">High School & College</h3>
+            <ul class="list-disc list-inside space-y-1 mt-2 text-gray-600 text-sm sm:text-base">
               <li><strong>Junior High</strong>: Davao Chong Hua High School (2016–2020)</li>
               <li><strong>Senior High</strong>: Davao Chong Hua High School (2020–2022)</li>
               <li><strong>College</strong>: BS Information Technology, Ateneo de Davao University (2023–2027)</li>
@@ -112,24 +128,24 @@
   <hr class="border-gray-200">
 
   <!-- Projects Section -->
-  <section id="projects" class="py-20 bg-gray-100">
+  <section id="projects" class="py-12 sm:py-20 bg-gray-100">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold font-poppins text-center text-black mb-12 animate__animated animate__fadeInUp">Projects</h2>
+      <h2 class="text-xl sm:text-3xl font-bold font-poppins text-center text-black mb-8 sm:mb-12 animate__animated animate__fadeInUp">Projects</h2>
       <div class="space-y-6">
-        <div class="bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden animate__animated animate__fadeIn">
-          <img src="./assets/image.png" alt="JavaScript Sorting Game" class="w-full h-48 object-cover">
-          <div class="p-6 text-center">
-            <h3 class="text-lg font-semibold text-black">JavaScript Sorting Game</h3>
-            <p class="text-gray-600 mt-2">An interactive game to practice sorting algorithms using JavaScript.</p>
-            <a href="#" class="inline-block mt-4 text-black hover:text-gray-800 font-medium transition-colors duration-300">View Project</a>
+        <div class="bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden animate__animated animate__fadeIn animate__faster">
+          <img src="./assets/image.png" onerror="this.src='https://via.placeholder.com/800x200?text=JavaScript+Sorting+Game'" alt="JavaScript Sorting Game" class="w-full h-32 sm:h-48 object-cover">
+          <div class="p-4 sm:p-6 text-center">
+            <h3 class="text-base sm:text-lg font-semibold text-black">JavaScript Sorting Game</h3>
+            <p class="text-gray-600 mt-2 text-sm sm:text-base">An interactive game to practice sorting algorithms using JavaScript.</p>
+            <a href="#" class="inline-block mt-4 text-black hover:text-gray-800 font-medium text-sm sm:text-base transition-colors duration-300">View Project</a>
           </div>
         </div>
-        <div class="bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden animate__animated animate__fadeIn animate__delay-1s">
-          <img src="./assets/imag1.png" alt="HTML Calculations" class="w-full h-48 object-cover">
-          <div class="p-6 text-center">
-            <h3 class="text-lg font-semibold text-black">HTML Calculations</h3>
-            <p class="text-gray-600 mt-2">A web-based calculator built with HTML and JavaScript.</p>
-            <a href="#" class="inline-block mt-4 text-black hover:text-gray-800 font-medium transition-colors duration-300">View Project</a>
+        <div class="bg-white border border-gray-200 shadow-sm rounded-lg overflow-hidden animate__animated animate__fadeIn animate__faster animate__delay-1s">
+          <img src="./assets/imag1.png" onerror="this.src='https://via.placeholder.com/800x200?text=HTML+Calculations'" alt="HTML Calculations" class="w-full h-32 sm:h-48 object-cover">
+          <div class="p-4 sm:p-6 text-center">
+            <h3 class="text-base sm:text-lg font-semibold text-black">HTML Calculations</h3>
+            <p class="text-gray-600 mt-2 text-sm sm:text-base">A web-based calculator built with HTML and JavaScript.</p>
+            <a href="#" class="inline-block mt-4 text-black hover:text-gray-800 font-medium text-sm sm:text-base transition-colors duration-300">View Project</a>
           </div>
         </div>
       </div>
@@ -140,15 +156,15 @@
   <hr class="border-gray-200">
 
   <!-- Skills Section -->
-  <section id="skills" class="py-20">
+  <section id="skills" class="py-12 sm:py-20">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold font-poppins text-center text-black mb-12 animate__animated animate__fadeInUp">Skills</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn">HTML</span>
-        <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__delay-1s">CSS</span>
-        <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__delay-2s">JavaScript</span>
-        <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__delay-3s">Python</span>
-        <span class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__delay-4s">SQL</span>
+      <h2 class="text-xl sm:text-3xl font-bold font-poppins text-center text-black mb-8 sm:mb-12 animate__animated animate__fadeInUp">Skills</h2>
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+        <span class="px-3 sm:px-4 py-1 sm:py-2 bg-white border border-gray-200 rounded-full text-xs sm:text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster">HTML</span>
+        <span class="px-3 sm:px-4 py-1 sm:py-2 bg-white border border-gray-200 rounded-full text-xs sm:text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster animate__delay-1s">CSS</span>
+        <span class="px-3 sm:px-4 py-1 sm:py-2 bg-white border border-gray-200 rounded-full text-xs sm:text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster animate__delay-2s">JavaScript</span>
+        <span class="px-3 sm:px-4 py-1 sm:py-2 bg-white border border-gray-200 rounded-full text-xs sm:text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster animate__delay-3s">Python</span>
+        <span class="px-3 sm:px-4 py-1 sm:py-2 bg-white border border-gray-200 rounded-full text-xs sm:text-sm font-medium text-black transition-transform duration-300 hover:scale-105 animate__animated animate__zoomIn animate__faster animate__delay-4s">SQL</span>
       </div>
     </div>
   </section>
@@ -157,24 +173,24 @@
   <hr class="border-gray-200">
 
   <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-100">
+  <section id="contact" class="py-12 sm:py-20 bg-gray-100">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold font-poppins text-center text-black mb-12 animate__animated animate__fadeInUp">Contact Me</h2>
-      <div class="bg-white border border-gray-200 shadow-sm rounded-lg p-6 max-w-md mx-auto animate__animated animate__fadeIn">
+      <h2 class="text-xl sm:text-3xl font-bold font-poppins text-center text-black mb-8 sm:mb-12 animate__animated animate__fadeInUp">Contact Me</h2>
+      <div class="bg-white border border-gray-200 shadow-sm rounded-lg p-6 max-w-sm sm:max-w-md mx-auto animate__animated animate__fadeIn">
         <div class="space-y-4">
           <div>
-            <label for="name" class="block text-sm font-medium text-gray-600">Name</label>
-            <input type="text" id="name" class="w-full p-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
+            <label for="name" class="block text-xs sm:text-sm font-medium text-gray-600">Name</label>
+            <input type="text" id="name" class="w-full p-1.5 sm:p-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-            <input type="email" id="email" class="w-full p-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
+            <label for="email" class="block text-xs sm:text-sm font-medium text-gray-600">Email</label>
+            <input type="email" id="email" class="w-full p-1.5 sm:p-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
           </div>
           <div>
-            <label for="message" class="block text-sm font-medium text-gray-600">Message</label>
-            <textarea id="message" class="w-full p-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-black focus:border-black transition-all duration-300" rows="4"></textarea>
+            <label for="message" class="block text-xs sm:text-sm font-medium text-gray-600">Message</label>
+            <textarea id="message" class="w-full p-1.5 sm:p-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-black focus:border-black transition-all duration-300" rows="4"></textarea>
           </div>
-          <button onclick="alert('Message sent!')" class="w-full bg-black text-white py-2 rounded-md font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 animate__animated animate__pulse animate__infinite animate__slower">
+          <button onclick="alert('Message sent!')" class="w-full bg-black text-white py-1.5 sm:py-2 rounded-md font-medium hover:bg-gray-800 transition-all duration-300 hover:scale-105 animate__animated animate__pulse animate__infinite animate__slower">
             Send Message
           </button>
         </div>
@@ -188,27 +204,95 @@
   <!-- Footer -->
   <footer class="bg-black text-white py-6 animate__animated animate__fadeInUp">
     <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="text-sm">© 2025 Aara Angelique Tangcay. All rights reserved.</p>
+      <p class="text-xs sm:text-sm">© 2025 Aara Angelique Tangcay. All rights reserved.</p>
       <div class="flex justify-center space-x-4 mt-2">
-        <a href="https://github.com" target="_blank" class="text-base text-white hover:text-gray-300 transition-transform duration-300 hover:scale-110 animate__animated animate__zoomIn">
+        <a href="https://github.com" target="_blank" class="text-sm sm:text-base text-white hover:text-gray-300 transition-transform duration-300 hover:scale-110 animate__animated animate__zoomIn">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://linkedin.com" target="_blank" class="text-base text-white hover:text-gray-300 transition-transform duration-300 hover:scale-110 animate__animated animate__zoomIn">
+        <a href="https://linkedin.com" target="_blank" class="text-sm sm:text-base text-white hover:text-gray-300 transition-transform duration-300 hover:scale-110 animate__animated animate__zoomIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </div>
     </div>
   </footer>
 
-  <!-- Dark Mode Script -->
+  <!-- Scripts -->
   <script>
+    // Hamburger Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('hidden');
+        menuToggle.innerHTML = navMenu.classList.contains('hidden')
+          ? '<i class="fas fa-bars"></i>'
+          : '<i class="fas fa-times"></i>';
+      });
+    }
+
+    // Dark Mode Toggle
     const darkModeToggle = document.getElementById('darkModeToggle');
-    darkModeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-      darkModeToggle.innerHTML = document.body.classList.contains('dark-mode')
-        ? '<i class="fas fa-sun"></i>'
-        : '<i class="fas fa-moon"></i>';
-    });
+    if (darkModeToggle) {
+      darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        darkModeToggle.innerHTML = document.body.classList.contains('dark-mode')
+          ? '<i class="fas fa-sun"></i>'
+          : '<i class="fas fa-moon"></i>';
+      });
+    }
+
+    // Navbar Active State
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    function removeActiveClasses() {
+      navLinks.forEach(link => {
+        link.classList.remove('active', 'font-bold', 'border-b-2', 'border-black', 'animate__animated', 'animate__pulse');
+      });
+    }
+
+    function setActiveLink(link) {
+      removeActiveClasses();
+      link.classList.add('active', 'font-bold', 'border-b-2', 'border-black', 'animate__animated', 'animate__pulse');
+    }
+
+    if (navLinks.length) {
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            setActiveLink(link);
+            if (!navMenu.classList.contains('hidden')) {
+              navMenu.classList.add('hidden');
+              menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+          }
+        });
+      });
+    }
+
+    if (typeof IntersectionObserver !== 'undefined' && sections.length) {
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute('id');
+            const correspondingLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+            if (correspondingLink) setActiveLink(correspondingLink);
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    }
   </script>
 </body>
 </html>
